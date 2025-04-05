@@ -1,0 +1,75 @@
+/* Navigation styling */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  background-color: #f8f9fa;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+}
+
+/* Navigation link styling */
+.nav-link {
+  color: #485785;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* Active navigation link styling */
+.nav-link.active {
+  background-color: #485785;
+  color: white;
+}
+
+/* KPI Card styling */
+div[data-testid="metric-container"] {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+/* KPI label styling */
+div[data-testid="metric-container"] > label[data-testid="stMetricLabel"] {
+  color: #485785;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* KPI value styling */
+div[data-testid="metric-container"] > div[data-testid="stMetricValue"] {
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Page title styling */
+h1 {
+  color: #485785;
+  padding: 1rem 0;
+  border-bottom: 2px solid #485785;
+  margin-bottom: 2rem;
+}
+
+/* Subheader styling */
+h3 {
+  color: #485785;
+  padding: 0.5rem 0;
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+  background-color: #e9ecef;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for KPI cards */
+div[data-testid="metric-container"] {
+  transition: transform 0.2s ease;
+}
+div[data-testid="metric-container"]:hover {
+  transform: translateY(-5px);
+}
