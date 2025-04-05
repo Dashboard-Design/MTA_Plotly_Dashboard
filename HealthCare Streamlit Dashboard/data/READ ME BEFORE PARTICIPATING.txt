@@ -1,0 +1,28 @@
+How to Enter the DataDNA Dataset Challenge
+– Follow Onyx Data on LinkedIn (it’s Ok if you already follow Onyx Data)​.
+– Share a LinkedIn post on your profile with your visualisation image and tag directly using @ mention to @OnyxData, @ZoomCharts, @Enterprise DNA, @BCS, The Chartered Institute for IT, @Smart Frames UI, @Data Career Jumpstart and the hashtag #dataDNA.
+– In your post, share an image of your visualisation or dashboard (remember, it must be a single image).
+– Complete this form - https://forms.office.com/r/PT12GAe9LG
+
+How to Enter ZoomCharts Mini Challenge for Power BI:
+1. Register for ZoomCharts Mini Challenge here and receive a Drill Down Visuals Developer License for Power BI. - hhttps://zoomcharts.com/en/microsoft-power-bi-custom-visuals/challenges/onyx-data-april-2025?utm_source=challenge&utm_medium=onyxdata&utm_campaign=onyxdata_web_april&utm_term=register&utm_content=registration
+2. Create a Power BI report including at least 2 ZoomCharts Drill Down Visuals!
+3. Submit your entry here to be verified - https://zoomcharts.com/en/microsoft-power-bi-custom-visuals/challenges/ onyx-data-april-2025?utm_source=challenge&utm_medium=onyxdata&utm_campaign=onyxdata_web_april&utm_term=submit&utm_content=registration
+(If your submission doesn’t match the challenge criteria, you will be notified by email, so make sure you will have time for revision and resubmission if needed. Feel free to resubmit entry as many times as necessary before the deadline)
+4. Follow ZoomCharts on LinkedIn (https://www.linkedin.com/company/zoomcharts/)
+5. Share a LinkedIn post on your profile that contains @ZoomCharts, @OnyxData and the hashtags #dataDNA, #builtwithzoomcharts.
+Judging Criteria for Power BI reports: 
+1)	Overall user experience and intuitiveness.
+2)	Navigation and user-flow of the report.
+3)	Implementation of drill down interactions and cross-chart filtering in data storytelling.
+4)	Visual clarity and readability.
+Resources
+Here are some useful links to learn more about ZoomCharts and get inspiration for your report:
+1) Use-Case Gallery: Try live demos and download reports made by the ZoomCharts team - https://zoomcharts.com/en/microsoft-power-bi-custom-visuals/dashboard-and-report-examples/?utm_source=challenge&utm_medium=onyxdata&utm_campaign=onyxdata_web_april&utm_term=resources&utm_content=use-case_gallery
+2) Video tutorials: Watch engaging video guides on how to set up and use the visuals - https://academy.zoomcharts.com/?utm_source=challenge&utm_medium=onyxdata&utm_campaign=onyxdata_web_april&utm_term=resources&utm_content=video_tutorials
+3) Documentation: Technical deep-dive about ZoomCharts visuals - https://zoomcharts.com/en/microsoft-power-bi-custom-visuals/documentation/general/getting-started/?utm_source=challenge&utm_medium=onyxdata&utm_campaign=onyxdata_web_april&utm_term=resources&utm_content=documentation
+4) ZoomCharts Blog: Useful tips&tricks for data visualization and report creation - https://zoomcharts.com/en/microsoft-power-bi-custom-visuals/blog/?utm_source=challenge&utm_medium=onyxdata&utm_campaign=onyxdata_web_april&utm_term=resources&utm_content=blog
+5) Visuals Gallery: Explore all the possible customization options for Drill Down Visuals - https://zoomcharts.com/en/microsoft-power-bi-custom-visuals/gallery/?utm_source=challenge&utm_medium=onyxdata&utm_campaign=onyxdata_web_april&utm_term=resources&utm_content=visuals_gallery
+
+Prizes: 
+The best report’s creator will receive a $300 Amazon Voucher from ZoomCharts. 
