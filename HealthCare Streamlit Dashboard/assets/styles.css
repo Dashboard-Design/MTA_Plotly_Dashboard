@@ -1,0 +1,165 @@
+.stAppHeader {
+  display: none;
+}
+
+[data-testid="stMain"] {
+  padding-top: 0px;
+  background-color: #fcfcfc;
+}
+
+.stMainBlockContainer {
+  padding-top: 0px;
+}
+
+[data-testid="stSidebarContent"] {
+  background-color: #ffffff;
+  border-color: #485785;
+}
+
+[data-testid="stSidebarHeader"] {
+  padding: 0px;
+}
+
+/* Sidebar styling */
+.sidebar-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #485785;
+}
+
+.sidebar-section-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 15px 0 10px 0;
+  color: #333;
+}
+
+/* Style the tab buttons to look like navigation */
+.stTabs [data-baseweb="tab-list"] {
+  gap: 54px;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 0;
+}
+
+.stTabs [data-baseweb="tab"] {
+  height: 50px;
+  white-space: pre-wrap;
+  color: rgb(145, 145, 145);
+  font-weight: 500;
+  border-radius: 4px;
+}
+.stTabs [aria-selected="true"] {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(20, 20, 20);
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+  background-color: #485785 !important; /* Blue color */
+}
+
+/* h3 is the KPI title in the html */
+
+h3.sub {
+  margin-top: 32px;
+  color: #3a3a3a;
+}
+
+.numberOfPatients {
+  color: #3a3a3a;
+  display: flex;
+  align-items: baseline;
+}
+
+.numberOfPatients h3 {
+  margin-right: 0px; /* Reduce this value to decrease the gap */
+  margin-bottom: 0;
+}
+
+.numberOfPatients p {
+  color: #aaaaaa;
+  margin: 0px;
+  padding: 0px;
+}
+
+.kpi-container {
+  background-color: white;
+  border-radius: 5px;
+  padding: 25px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.kpi-title {
+  color: #485785;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.kpi-value {
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.kpi-up {
+  color: #4caf50;
+  font-size: 18px;
+}
+.kpi-down {
+  color: #f44336;
+  font-size: 18px;
+}
+.kpi-compare {
+  color: #888;
+  font-size: 15px;
+}
+
+/* Reduce gap between sidebar paragraphs */
+/* Update these classes in your assets/styles.css file */
+.simpleTextFirst,
+.simpleText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Gap between <p> tags within the class */
+  margin: 16px 0; /* Margin between classes (top and bottom) */
+  padding: 0;
+  color: #888;
+  font-size: 0.92rem;
+}
+
+/* For the first instance, remove top margin to maintain consistent spacing */
+.simpleTextFirst {
+  margin-top: 30px;
+}
+
+.simpleTextFirst p,
+.simpleText p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.textBlak {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.92rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the time period selector */
+[data-testid="stSelectbox"] {
+  margin: 10px 0 20px 0;
+}
+
+/* Style the date input section */
+[data-testid="stDateInput"] {
+  margin: 15px 0;
+}
+
+/* Style info boxes in sidebar */
+[data-testid="stAlert"] {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
