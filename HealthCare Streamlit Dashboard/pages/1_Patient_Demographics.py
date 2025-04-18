@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from utils import initialize_page, load_data, create_sidebar, create_page_navigation
+from utils import initialize_page, load_data, create_sidebar, create_page_navigation, img_to_base64
 
 # Initialize page
 initialize_page()
@@ -47,9 +47,19 @@ try:
         period_label = comparison_label.replace("vs ", "")
 
     # ------ Key Insights ------
-    st.markdown("""<h3 class="sub">Key Insights</h3>""", unsafe_allow_html=True)
     
+    # st.markdown("""<h3 class="sub">Key Insights</h3>""", unsafe_allow_html=True)
+    image_path = 'assets/images/Insights.png'
+    st.markdown(f"""
+            <div style="display: flex; flex-direction: row; margin-top: 32px; align-items: center;  gap: 15px;">
+                <div style="margin-bottom: 8px;">
+                <img src="data:image/png;base64,{img_to_base64(image_path)}" style="width: 32px; height: 32px;">
+                </div>
+                <h3 style="color: #3a3a3a;">Key Insights</h3>
+            </div>
+    """, unsafe_allow_html=True)
     
+
     # Create age bins
     age_bins = [0, 10, 20, 30, 40, 50, 60, 70, 80, 150]
     age_labels = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80+']
@@ -85,6 +95,10 @@ try:
     longest_los_age_group = age_group_los.idxmax()
     longest_los = age_group_los.max()
 
+    # ------------------------------------------------------------
+    # <---       Section 0: Key Insights        --->
+    # ------------------------------------------------------------
+
     col1, col2 = st.columns([1, 1.2], gap="large")
 
     with col1:
@@ -107,7 +121,9 @@ try:
 
         </ul>""", unsafe_allow_html=True)    
 
-    # ------ GENDER SECTION ------
+    # ------------------------------------------------------------
+    # <---       Section 1: Gender        --->
+    # ------------------------------------------------------------
     st.markdown("""<h3 class="sub">Gender</h3>""", unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 1.2], gap="large")
@@ -206,7 +222,10 @@ try:
         # Add scrolling configuration
         st.plotly_chart(fig, use_container_width=True )
     
-    # ------ AGE SECTION ------
+    # ------------------------------------------------------------
+    # <---       Section 2: Age        --->
+    # ------------------------------------------------------------
+
     st.markdown("""<h3 class="sub">Age</h3>""", unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 1.2], gap="large")
@@ -313,7 +332,10 @@ try:
         # Add scrolling configuration
         st.plotly_chart(fig, use_container_width=True)
     
-    # ------ BLOOD TYPE SECTION ------
+    # ------------------------------------------------------------
+    # <---       Section 3: Blood Type        --->
+    # ------------------------------------------------------------
+
     st.markdown("""<h3 class="sub">Blood Type</h3>""", unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 1.2], gap="large")
@@ -411,7 +433,9 @@ try:
         # Add scrolling configuration
         st.plotly_chart(fig, use_container_width=True)
     
-    # ------ MEDICAL CONDITION SECTION ------
+    # ------------------------------------------------------------
+    # <---       Section 4: Medical Condition        --->
+    # ------------------------------------------------------------
     st.markdown("""<h3 class="sub">Medical Condition</h3>""", unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 1.2], gap="large")
@@ -508,9 +532,120 @@ try:
             height=300
         )
 
-        # Add scrolling configuration
         st.plotly_chart(fig, use_container_width=True)
 
+
+    # ------------------------------------------------------------
+    # <---       Section 5: Sunburst Chart        --->
+    # ------------------------------------------------------------
+
+    image_path_sunburst = 'assets/images/interactive.png'
+    st.markdown(f"""
+            <div style="display: flex; flex-direction: row; margin-top: 32px; align-items: center;  gap: 15px;">
+                <div style="margin-bottom: 8px;">
+                <img src="data:image/png;base64,{img_to_base64(image_path_sunburst)}" style="width: 32px; height: 32px;">
+                </div>
+                <h3 style="color: #3a3a3a;">Explore the multiple dimensions of our data</h3>
+            </div>
+    """, unsafe_allow_html=True)
+
+    # Define the hierarchy options
+    hierarchy_options = ['Medical Condition', 'Hospital', 'Admission Type', 'Insurance Provider', 'Blood Type']
+    
+    # --- Column Layout ---
+    col1, col2 = st.columns([1.5, 1], gap="large")
+
+    with col1:
+        # Use session state to remember the selection, default to 'Medical Condition'
+        if 'sunburst_inner_ring' not in st.session_state:
+            st.session_state.sunburst_inner_ring = 'Medical Condition'
+        
+        # Get the selected inner ring from session state
+        selected_inner_ring = st.session_state.sunburst_inner_ring
+        
+        st.markdown(f"""<h6 class='sub'>Patient Distribution Hierarchy (by {selected_inner_ring})</h6>""", unsafe_allow_html=True)
+        
+        # --- Dynamic Path Creation ---
+        # Define the default path structure, replacing the first element
+        path_structure = [selected_inner_ring, 'Test Results', 'Gender']
+        
+        # --- Dynamic Data Grouping ---
+        # Ensure the selected column exists in the DataFrame
+        if selected_inner_ring in df_current.columns:
+            try:
+                # Group by the dynamic path structure
+                sunburst_data = df_current.groupby(path_structure).size().reset_index()
+                sunburst_data.columns = path_structure + ['Count'] # Dynamically name columns
+                
+                # --- Create the Sunburst Chart ---
+                fig_sunburst = px.sunburst(
+                    sunburst_data,
+                    path=path_structure, # Use the dynamic path
+                    values='Count',
+                    color='Count',
+                    color_continuous_scale='Blues',
+                    maxdepth=3,
+                    branchvalues='total'
+                )
+
+                # Update layout
+                fig_sunburst.update_layout(
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    paper_bgcolor='rgba(0,0,0,0)',
+                    height=600,
+                    margin=dict(t=10, l=0, r=0, b=0) # Adjusted top margin
+                )
+
+                # Update hover template
+                fig_sunburst.update_traces(
+                    hovertemplate="""
+                    <b>%{label}</b><br>
+                    Patients: %{value:,}<br>
+                    Percentage: %{percentParent:.1%}<br>
+                    <extra></extra>
+                    """
+                )
+
+                st.plotly_chart(fig_sunburst, use_container_width=True)
+            
+            except Exception as e:
+                st.error(f"Could not generate chart with {selected_inner_ring}. Error: {e}")
+        else:
+             st.warning(f"Column '{selected_inner_ring}' not found in the data.")
+
+    with col2:
+        st.markdown("""
+        <h6 class='sub'>How to Read This Chart</h6>
+        <p style='margin-bottom: 15px;'>This interactive sunburst chart visualizes the hierarchical relationship between:</p>
+        <div style="margin-left: 20px; margin-bottom: 40px;">    
+            <ul style='margin-bottom: 20px;'>
+                <li><b>Inner Ring:</b> Selected Dimension (change below)</li>
+                <li><b>Middle Ring:</b> Age Groups</li>
+                <li><b>Outer Ring:</b> Gender Distribution</li>
+            </ul>
+            <p style='margin-bottom: 15px;'><b>Interactive Features:</b></p>
+            <ul style='margin-bottom: 20px;'>
+                <li>Click on any segment to zoom in</li>
+                <li>Click in the center to zoom out</li>
+                <li>Hover over segments to see detailed information</li>
+            </ul>
+            <p>Compare relative sizes of patient segments and explore demographic patterns.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # --- Selectbox for Inner Ring ---
+        # Use a key to link the selectbox to session state
+        # The on_change will trigger a rerun, updating the chart
+
+        st.radio(
+            "Select Inner Ring Dimension:",
+            hierarchy_options,
+            key='sunburst_inner_ring', # Link to session state key
+            index=hierarchy_options.index(st.session_state.sunburst_inner_ring), 
+            horizontal=False 
+        )
+  
+        
 except Exception as e:
     st.error(f"Error loading data: {e}")
     st.stop()

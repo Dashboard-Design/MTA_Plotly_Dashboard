@@ -173,7 +173,7 @@ h3.sub {
   position: relative;
   display: inline-block;
   padding: 10px 10px 15px 10px; /* Add padding at bottom for distance from the line */
-  margin-bottom: -2px;
+  margin-bottom: 0;
   margin-right: 20px;
   margin-left: 20px;
   max-height: 100%;
@@ -181,7 +181,7 @@ h3.sub {
 
 div[data-baseweb="tab-list"] {
   position: relative;
-  padding-bottom: 3.5px !important; /* Space for the line */
+  padding-bottom: 0 !important; /* Space for the line */
   border-bottom: 2px solid #e0e0e0 !important; /* Continuous light grey line */
   height: 75px;
   columns: 24ch;
@@ -204,7 +204,7 @@ div[data-baseweb="tab-list"] {
   display: block;
   content: "";
   position: absolute;
-  bottom: -2.5px; /* Position it on top of the continuous line */
+  bottom: 2.5px; /* Position it on top of the continuous line */
   left: 0;
   width: 100%; /* Width of the link */
   height: 3px;
@@ -261,8 +261,57 @@ ul.sub {
   gap: 18px;
 }
 
-/* Container for metrics sections --- Page 3*/
-[data-testid="stDeckGlJsonChart"] {
+ul.sub2 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 20px;
+}
+
+/* Container for metrics sections --- Page 1*/
+.st-key-sunburst {
+  background-color: white;
+  border-radius: 5px;
+  padding: 25px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for underperforming hospitals --- Page 2*/
+
+.underperforming {
+  background-color: #ffffff00;
+  padding: 0px 25px 25px 25px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.underperforming-list {
+  border-left: 4px solid #ff6b6b;
+  margin-top: 5px;
+  columns: 2;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+
+.toggle-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+
+/* Container for Trends & Forecasting sections --- Page 4*/
+.st-key-background {
+  background-color: white;
+  border-radius: 5px;
+  padding: 25px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.st-key-background-2 {
   background-color: white;
   border-radius: 5px;
   padding: 25px;

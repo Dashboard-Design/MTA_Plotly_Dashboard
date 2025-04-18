@@ -4,6 +4,21 @@ import pandas as pd
 from datetime import datetime, timedelta
 import base64
 
+def load_clusters():
+    url = "data/clustered_patients.csv"
+    df = pd.read_csv(url)
+    
+    df['Date of Admission'] = pd.to_datetime(df['Date of Admission'])
+    df['Discharge Date'] = pd.to_datetime(df['Discharge Date'])
+    df['Length of Stay'] = (df['Discharge Date'] - df['Date of Admission']).dt.days
+    df['Year'] = df['Date of Admission'].dt.year
+
+    df.Cluster += 1     # clusters will be 1-6
+
+    df['Cluster'] = df['Cluster'].apply(lambda x: 'Cluster ' + str(x) )
+    
+    return df
+
 def img_to_base64(img_path):
     with open(img_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
